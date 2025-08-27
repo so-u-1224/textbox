@@ -1,0 +1,89 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>TextBox Center with Buttons</title>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;     
+      justify-content: center;    
+      align-items: center;        
+      height: 100vh;
+      margin: 0;
+      background: #f5f5f5;
+    }
+    input[type="text"] {
+      width: 300px;
+      padding: 12px;
+      font-size: 20px;
+      border: 2px solid #333;
+      border-radius: 8px;
+      margin-bottom: 10px;
+    }
+    .buttons {
+      display: flex;
+      gap: 15px;
+    }
+    button {
+      font-size: 28px;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 50%;
+      color: white;
+      cursor: pointer;
+      width: 60px;
+      height: 60px;
+    }
+    #showBtn {
+      background: #4CAF50; /* 緑 */
+    }
+    #showBtn:hover {
+      background: #45a049;
+    }
+    #clearBtn {
+      background: #e74c3c; /* 赤 */
+    }
+    #clearBtn:hover {
+      background: #c0392b;
+    }
+    #output {
+      margin-top: 20px;
+      font-size: 64px;
+      font-weight: bold;
+      color: #222;
+      text-align: center;
+      word-break: break-word;
+    }
+  </style>
+</head>
+<body>
+  <input type="text" id="textbox" placeholder="ここに入力してください">
+  
+  <div class="buttons">
+    <button id="showBtn">表</button>
+    <button id="clearBtn">削</button>
+  </div>
+
+  <div id="output"></div>
+
+  <script>
+    const textbox = document.getElementById("textbox");
+    const showBtn = document.getElementById("showBtn");
+    const clearBtn = document.getElementById("clearBtn");
+    const output = document.getElementById("output");
+
+    // 表示ボタン
+    showBtn.addEventListener("click", () => {
+      output.textContent = textbox.value;
+    });
+
+    // 消すボタン
+    clearBtn.addEventListener("click", () => {
+      output.textContent = "";
+      textbox.value = "";
+    });
+  </script>
+</body>
+</html>
